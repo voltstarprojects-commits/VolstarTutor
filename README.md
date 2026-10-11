@@ -34,3 +34,17 @@ A “Deploy skipped because a new one was scheduled for the same branch” messa
 
 ## Keyless AI conversation and voice mode
 The site now tries Puter.js AI chat by default, so learners do not need to paste a Gemini API key. Puter uses a user-pays model: the site owner does not manage an API key or pay the app's AI bill, but users may need a Puter account and free usage is not guaranteed to be unlimited. The page also has a **Talk with AI** button that listens through the browser's SpeechRecognition API and reads the AI response aloud using speech synthesis. Microphone support varies by browser; Chrome or Edge over HTTPS is recommended. If the AI provider or network is unavailable, the page displays an error and uses its built-in basic practice coach.
+
+
+## Real-time voice-to-voice mode
+
+The **Live voice call** button uses WebRTC and the OpenAI Realtime API for spoken conversation. It does not rely on the old speech-to-text, text-chat, and text-to-speech turn-taking chain. The Netlify Function at `netlify/functions/session.mjs` keeps the standard API key on the server while negotiating a session.
+
+### Required Netlify setup
+
+1. Open your Netlify site and go to **Site configuration → Environment variables**.
+2. Add `OPENAI_API_KEY` with an OpenAI API key that has Realtime API access.
+3. Redeploy the site after saving the variable.
+4. Open the site over HTTPS, allow microphone access, and click **Live voice call**.
+
+Realtime API usage is billed according to the provider's current pricing; it is not guaranteed to be free. Never put the standard API key in `index.html` or any public repository. The static website's display-name/access-code shortcuts remain convenience features, not secure authentication.
