@@ -22,3 +22,11 @@ The access codes `chathura1234` and `vonal2011` are implemented as front-end con
 
 ## Publish with GitHub Pages
 In the repository, open **Settings → Pages**, choose **Deploy from a branch**, select `main` and `/(root)`, then save. GitHub will show the published URL once deployment finishes.
+
+
+## Netlify deployment
+This is a static site and requires no build command. The repository includes `netlify.toml`, which sets the publish directory to the repository root (`.`), where `index.html` is located.
+
+In Netlify, import `voltstarprojects-commits/VolstarTutor`, use `main` as the production branch, leave the build command empty, and use `.` as the publish directory. The configuration file sets the publish directory automatically.
+
+A “Deploy skipped because a new one was scheduled for the same branch” message usually means an older deploy was superseded; it is not by itself a build failure. Check the newest deploy in the Deploys tab for its status and logs.
