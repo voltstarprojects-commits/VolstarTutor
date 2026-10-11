@@ -30,3 +30,7 @@ This is a static site and requires no build command. The repository includes `ne
 In Netlify, import `voltstarprojects-commits/VolstarTutor`, use `main` as the production branch, leave the build command empty, and use `.` as the publish directory. The configuration file sets the publish directory automatically.
 
 A “Deploy skipped because a new one was scheduled for the same branch” message usually means an older deploy was superseded; it is not by itself a build failure. Check the newest deploy in the Deploys tab for its status and logs.
+
+
+## Keyless AI conversation and voice mode
+The site now tries Puter.js AI chat by default, so learners do not need to paste a Gemini API key. Puter uses a user-pays model: the site owner does not manage an API key or pay the app's AI bill, but users may need a Puter account and free usage is not guaranteed to be unlimited. The page also has a **Talk with AI** button that listens through the browser's SpeechRecognition API and reads the AI response aloud using speech synthesis. Microphone support varies by browser; Chrome or Edge over HTTPS is recommended. If the AI provider or network is unavailable, the page displays an error and uses its built-in basic practice coach.
